@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { AuthButtonComponent } from './auth-button/auth-button.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { SingleTeamComponent } from './single-team/single-team.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthButtonComponent,
     DashboardComponent,
-    HomePageComponent
+    HomePageComponent,
+    SingleTeamComponent
   ],
   imports: [
     BrowserModule,
