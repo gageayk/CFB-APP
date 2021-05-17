@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink, UrlSegment } from '@angular/router';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-auth-button',
@@ -12,11 +14,13 @@ export class AuthButtonComponent implements OnInit {
   public error: string;
   public user: gapi.auth2.GoogleUser;
   // public userProfile: gapi.auth2.BasicProfile
+  constructor(private userService: UserService, private router: Router) { }
+  
 
   async ngOnInit() {
     if (await this.checkIfUserAuthenticated()) {
       this.user = this.authInstance.currentUser.get();
-      // this.userProfile = this.user.getBasicProfile();
+      // this.router.navigate(['/home'])
     }
   }
 
@@ -50,6 +54,25 @@ export class AuthButtonComponent implements OnInit {
       await this.authInstance.signIn().then(
         user => this.user = user,
         error => this.error = error);
+
+      // Creating user account if first time logging in, otherwise nothing. 
+      // favTeams filled with new (this will be for original popup to select fav teams, if skipped then just empty)
+      this.userService.getUsers().subscribe((users: any) => {
+        let stored = false;
+        for(const usr in users){
+          if(this.user.getBasicProfile().getEmail() === users[usr].email){
+            stored = true
+          }
+        }
+        
+        if(stored == false){
+          this.createUser(this.user.getBasicProfile().getEmail(), this.user.getBasicProfile().getName(), ['new'])
+        }
+        // else{
+        //   console.log('Account already present!')
+        // }
+      })
+      this.router.navigate(['/home'])
     });
   }
 
@@ -62,6 +85,10 @@ export class AuthButtonComponent implements OnInit {
     return this.authInstance.isSignedIn.get();
   }
 
-  
+  createUser(email: string, name: string, favTeams: Array<string>) {
+    this.userService.createUser(email, name, favTeams).subscribe((response: any) => {
+      console.log(response)
+    })
+  }  
 
 }
