@@ -9,6 +9,13 @@ const{ Team, User } = require('./models');
 // Load in middleware
 app.use(bodyParser.json());
 
+// For CORS policy
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 
 // User CRUD
 
@@ -19,13 +26,13 @@ app.get('/users', (req,res) => {
 })
 
 app.post('/users', (req,res) => {
-    let firstName = req.body.firstName
-    let lastName = req.body.lastName
+    let name = req.body.name
     let email = req.body.email
+    let favTeams = req.body.favTeams
 
     let newUser = new User({
-        firstName,
-        lastName,
+        name,
+        favTeams,
         email
     })
 
@@ -50,7 +57,7 @@ app.delete('/users/:id', (req,res) => {
     })
 })
 
-// Team CRUD (no put bc I am lazy and don't want to type out each value)
+// Team CRUD (no post bc I am lazy and don't want to type out each value)
 app.get('/teams', (req, res) => {
     Team.find({}).then((teams) => {
         res.send(teams)

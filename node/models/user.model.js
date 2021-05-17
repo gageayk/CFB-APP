@@ -1,21 +1,17 @@
 const mongoose = require('mongoose')
 
 const UserSchema = new mongoose.Schema({
-    firstName: {
-        type: String,
-        require: true,
-        minlength: 1
-    },
-    lastName: {
-        type: String,
-        require: true,
-        minlength: 1
-    },
     email: {
         type: String,
         require: true,
         minlength: 1
     },
+    name: {
+        type: String,
+        require: true,
+        minlength: 1
+    },
+    favTeams: [String],
     _userId: {
         type: mongoose.Types.ObjectId,
         require: true
