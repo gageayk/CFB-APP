@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamService } from 'src/app/team.service';
+import { FormToTeamService } from 'src/app/form-to-team.service';
 
 @Component({
   selector: 'app-single-team',
@@ -7,10 +8,17 @@ import { TeamService } from 'src/app/team.service';
   styleUrls: ['./single-team.component.css']
 })
 export class SingleTeamComponent implements OnInit {
+  currentTeam: any;
+  constructor(private teamService: TeamService, private formToTeamService: FormToTeamService) { }
 
-  constructor(private teamService: TeamService) { }
-
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    this.teamService.getTeam(this.formToTeamService.teamName).subscribe((obj: any) => {
+      // this.currentTeam = Object.entries(obj)
+      this.currentTeam = Object.values(obj)
+      // getting rid of generated value
+      this.currentTeam.pop()
+      // console.log(this.currentTeam)
+    })
   }
 
   getTeams(){
@@ -22,7 +30,10 @@ export class SingleTeamComponent implements OnInit {
   getTeam(name: string){
     this.teamService.getTeam(name).subscribe((response) => {
       console.log(response)
+      // return response
+      // this.currentTeam = response
     })
+    // console.log(this.currentTeam)
   }
 
 }

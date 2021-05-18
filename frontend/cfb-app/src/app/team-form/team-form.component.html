@@ -1,0 +1,13 @@
+<!-- <h1 *ngFor="let team of teams" >{{ team }}</h1> -->
+
+<form #teamForm="ngForm" (ngSubmit)="onSubmit(teamForm.value)">
+  <div class="form-group">
+    <label for="name">Team</label>
+    <select class="form-control" name="name" required ngModel>
+      <option *ngFor="let team of teams" [value]="team">{{team}}</option>
+    </select>
+    <!-- <input type="text" name="test" ngModel> -->
+  </div>
+
+  <button type="submit" >Submit</button>
+</form>

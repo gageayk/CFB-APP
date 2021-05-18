@@ -1,3 +1,6 @@
-<button (click)="getTeams()">Teams</button>
+<!-- <button (click)="getTeams()">Teams</button> -->
 
-<button (click)='getTeam("Texas A&M")'>Team</button>
+<!-- <button (click)='getTeam("Texas A&M")'>Team</button> -->
+
+<app-team-form></app-team-form>
+<p *ngFor="let obj of currentTeam">{{ obj }}</p>
