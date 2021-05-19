@@ -1,3 +1,2 @@
-<button (click)="getTeams()">Teams</button>
-
-<button (click)='getTeam("Texas A&M")'>Team</button>
+<!-- Manually create the tites and then create matrix so that you can just do ngFor -->
+<p *ngFor="let obj of currentTeam">{{ obj[0] }}: {{ obj[1] }}</p> 

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ import { AuthButtonComponent } from './auth-button/auth-button.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SingleTeamComponent } from './single-team/single-team.component';
+import { TeamFormComponent } from './team-form/team-form.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { SingleTeamComponent } from './single-team/single-team.component';
     AuthButtonComponent,
     DashboardComponent,
     HomePageComponent,
-    SingleTeamComponent
+    SingleTeamComponent,
+    TeamFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
