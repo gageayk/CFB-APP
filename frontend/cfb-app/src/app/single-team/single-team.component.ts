@@ -9,7 +9,6 @@ import { TeamService } from 'src/app/team.service';
 export class SingleTeamComponent implements OnChanges {
   @Input() teamName = "Air Force"
 
-  // currentTeam: string;
   public currentTeam: any
   public labels = ["Team","Total Offense", "Rushing Offense", "Passing Offense", "Team Passing Efficiency", "Scoring Offense", 
   "Total Defense", "Rushing Defense", "Passing Yards Allowed", "Team Passing Efficiency Defense", "Scoring Defense",
