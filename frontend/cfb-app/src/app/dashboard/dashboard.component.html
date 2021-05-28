@@ -1,2 +1,3 @@
-<!-- <app-team-form></app-team-form> -->
-<app-compare-form></app-compare-form>
+<app-team-form *ngIf="singleTeam"></app-team-form>
+<app-compare-form *ngIf="compTeam"></app-compare-form>
+<h2 *ngIf="!singleTeam && !compTeam">Choose an option!</h2>

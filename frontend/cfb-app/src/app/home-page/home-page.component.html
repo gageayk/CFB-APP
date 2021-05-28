@@ -1,2 +1,13 @@
-<app-dashboard></app-dashboard>
-<!-- <app-single-team></app-single-team> -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12  col-md-6 ">
+            <button type="button" class="btn btn-primary float-md-end" (click)="selectSingleTeam()">Single Team</button>
+        </div>
+        <div class="col-sm-12  col-md-6">
+            <button type="button" class="btn btn-primary" (click)="selectCompTeam()">Compare Teams</button>
+        </div>
+        <div class="col-sm-12 offset-md-2 col-md-10">
+            <app-dashboard [singleTeam]="singleTeam" [compTeam]="compTeam"></app-dashboard>
+        </div>
+    </div>
+</div>
