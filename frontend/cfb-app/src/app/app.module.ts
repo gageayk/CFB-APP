@@ -10,6 +10,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SingleTeamComponent } from './single-team/single-team.component';
 import { TeamFormComponent } from './team-form/team-form.component';
+import { CompareTeamsComponent } from './compare-teams/compare-teams.component';
+import { CompareFormComponent } from './compare-form/compare-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { TeamFormComponent } from './team-form/team-form.component';
     DashboardComponent,
     HomePageComponent,
     SingleTeamComponent,
-    TeamFormComponent
+    TeamFormComponent,
+    CompareTeamsComponent,
+    CompareFormComponent
   ],
   imports: [
     BrowserModule,

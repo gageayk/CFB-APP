@@ -1,0 +1,17 @@
+<form #compForm="ngForm" (ngSubmit)="onSubmit(compForm.value.left, compForm.value.right)">
+    <div class="form-group">
+      <label for="left">Team 1</label>
+      <select class="form-control" name="left" required ngModel>
+        <option *ngFor="let team of teams" [value]="team">{{team}}</option>
+      </select>
+
+      <label for="right">Team 2</label>
+      <select class="form-control" name="right" required ngModel>
+        <option *ngFor="let team of teams" [value]="team">{{team}}</option>
+      </select>
+    </div>
+  
+    <button type="submit">Submit</button>
+</form>
+
+<app-compare-teams [leftTeam]="leftTeam" [rightTeam]="rightTeam"></app-compare-teams>

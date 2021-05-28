@@ -1,0 +1,6 @@
+<!-- <p *ngFor="let obj of currentLeftTeam; let i = index">{{ obj[0] }}: {{ obj[1] }}</p> 
+<br>
+<p *ngFor="let obj of currentRightTeam">{{ obj[0] }}: {{ obj[1] }}</p>  -->
+<p *ngFor="let obj of differences; let i=index">{{ labels[i] }}: {{ obj[0] }} vs. {{ obj[1] }} {{ obj[2] }}</p>
+
+<h3>{{ prediction[0] }} vs. {{ prediction[1] }}</h3>
