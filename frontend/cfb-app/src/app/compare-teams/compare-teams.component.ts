@@ -14,6 +14,7 @@ export class CompareTeamsComponent implements OnChanges {
   public currentLeftTeam: any
   public currentRightTeam: any
   public differences = []
+  public prediction = new Array(2)
 
   public labels = ["Team","Total Offense", "Rushing Offense", "Passing Offense", "Team Passing Efficiency", "Scoring Offense", 
   "Total Defense", "Rushing Defense", "Passing Yards Allowed", "Team Passing Efficiency Defense", "Scoring Defense",
@@ -83,6 +84,13 @@ export class CompareTeamsComponent implements OnChanges {
       }else{
         this.currentRightTeam = team
       }
+
+      // basic score prediction
+      let team1 = (parseFloat(this.differences[5][0]) + parseFloat(this.differences[10][1])) / 2
+      let team2 = (parseFloat(this.differences[5][1]) + parseFloat(this.differences[10][0])) / 2
+
+      this.prediction[0] = team1
+      this.prediction[1] = team2
     })
   }
 }
