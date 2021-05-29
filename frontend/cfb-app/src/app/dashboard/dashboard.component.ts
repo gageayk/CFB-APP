@@ -8,6 +8,7 @@ import { Component, OnInit, Input,  } from '@angular/core';
 export class DashboardComponent implements OnInit {
   @Input() singleTeam
   @Input() compTeam
+  @Input() natAvg
   constructor() { }
 
   ngOnInit(): void {

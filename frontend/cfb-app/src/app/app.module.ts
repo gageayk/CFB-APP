@@ -12,6 +12,7 @@ import { SingleTeamComponent } from './single-team/single-team.component';
 import { TeamFormComponent } from './team-form/team-form.component';
 import { CompareTeamsComponent } from './compare-teams/compare-teams.component';
 import { CompareFormComponent } from './compare-form/compare-form.component';
+import { NationalAvgComponent } from './national-avg/national-avg.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CompareFormComponent } from './compare-form/compare-form.component';
     SingleTeamComponent,
     TeamFormComponent,
     CompareTeamsComponent,
-    CompareFormComponent
+    CompareFormComponent,
+    NationalAvgComponent
   ],
   imports: [
     BrowserModule,

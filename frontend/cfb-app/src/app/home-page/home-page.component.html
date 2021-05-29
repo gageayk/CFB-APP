@@ -1,11 +1,12 @@
 <div class="sidebar">
     <a (click)="selectSingleTeam()" [ngClass]="{'active': singleTeam}">Single Team</a>
     <a (click)="selectCompTeam()" [ngClass]="{'active': compTeam}">Compare Teams</a>
+    <a (click)="selectNatAvg()" [ngClass]="{'active': natAvg}">National Averages</a>
 </div>
 <div class="container-fluid dashboard">
     <div class="row">
         <div class="col-sm-12 offset-md-2 col-md-10">
-            <app-dashboard [singleTeam]="singleTeam" [compTeam]="compTeam"></app-dashboard>
+            <app-dashboard [singleTeam]="singleTeam" [compTeam]="compTeam" [natAvg]="natAvg"></app-dashboard>
         </div>
     </div>
 </div>

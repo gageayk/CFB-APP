@@ -1,3 +1,4 @@
 <app-team-form *ngIf="singleTeam"></app-team-form>
 <app-compare-form *ngIf="compTeam"></app-compare-form>
-<h2 *ngIf="!singleTeam && !compTeam">Choose an option!</h2>
+<app-national-avg *ngIf="natAvg"></app-national-avg>
+<h2 *ngIf="!singleTeam && !compTeam && !natAvg">Choose an option!</h2>

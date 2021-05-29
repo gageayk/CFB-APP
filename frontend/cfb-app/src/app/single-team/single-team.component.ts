@@ -1,6 +1,8 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { TeamService } from 'src/app/team.service';
 
+declare var Chartkick: any
+
 @Component({
   selector: 'app-single-team',
   templateUrl: './single-team.component.html',
@@ -44,7 +46,16 @@ export class SingleTeamComponent implements OnChanges {
         team.push(place)
       }
       this.currentTeam = team
-      // console.log(this.currentTeam)
+      this.getOffPer()
     })
+  }
+
+  getOffPer(){
+    let total = parseFloat(this.currentTeam[1][1])
+    let rush = ((parseFloat(this.currentTeam[2][1]) / total) * 100).toPrecision(2)
+    let pass = ((parseFloat(this.currentTeam[3][1]) / total) * 100).toPrecision(2)
+
+    new Chartkick.PieChart("chart-1", [[`Rush Off`, rush], [`Pass Off`, pass]]
+    )
   }
 }

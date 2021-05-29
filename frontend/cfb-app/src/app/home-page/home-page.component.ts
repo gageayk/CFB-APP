@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomePageComponent implements OnInit {
   public singleTeam = false
   public compTeam = false
+  public natAvg = false
   constructor() { }
 
   ngOnInit(): void {
@@ -16,11 +17,19 @@ export class HomePageComponent implements OnInit {
   selectSingleTeam() {
     this.singleTeam = true
     this.compTeam = false
+    this.natAvg = false
   }
 
   selectCompTeam() {
     this.singleTeam = false
     this.compTeam = true
+    this.natAvg = false
+  }
+  
+  selectNatAvg() {
+    this.singleTeam = false
+    this.compTeam = false
+    this.natAvg = true
   }
 
 }

@@ -26,7 +26,11 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/moment/moment.js",
+              "./node_modules/chart.js/dist/Chart.js",
+              "./node_modules/chartkick/dist/chartkick.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -90,7 +94,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/chart.js/dist/chart.js",
+              "./node_modules/chartkick/dist/chartkick.js"
+            ]
           }
         },
         "lint": {
