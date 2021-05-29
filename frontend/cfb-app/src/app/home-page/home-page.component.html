@@ -1,2 +1,11 @@
-<app-dashboard></app-dashboard>
-<!-- <app-single-team></app-single-team> -->
+<div class="sidebar">
+    <a (click)="selectSingleTeam()" [ngClass]="{'active': singleTeam}">Single Team</a>
+    <a (click)="selectCompTeam()" [ngClass]="{'active': compTeam}">Compare Teams</a>
+</div>
+<div class="container-fluid dashboard">
+    <div class="row">
+        <div class="col-sm-12 offset-md-2 col-md-10">
+            <app-dashboard [singleTeam]="singleTeam" [compTeam]="compTeam"></app-dashboard>
+        </div>
+    </div>
+</div>
