@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('./mongoose');
 const bodyParser = require('body-parser');
 
-const{ Team, User } = require('./models');
+const{ Team, User, Average } = require('./models');
 // const{ team } = require('./models/team.model');
 
 // Load in middleware
@@ -23,6 +23,12 @@ app.get('/users', (req,res) => {
     User.find({}).then((users) => {
         res.send(users)
     });
+})
+
+app.get('/users/:id', (req,res) => {
+    User.findOne({_id: req.params.id}).then((user) => {
+        res.send(user)
+    })
 })
 
 app.post('/users', (req,res) => {
@@ -83,6 +89,13 @@ app.delete('/teams/:id', (req,res) => {
         _id: req.params.id
     }).then((removedUserDoc) => {
         res.send(removedUserDoc)
+    })
+})
+
+// Average
+app.get('/averages/:section', (req,res) => {
+    Average.findOne({section: req.params.section}).then((average) => {
+        res.send(average)
     })
 })
 
